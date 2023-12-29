@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_ean60")
-rocket_color = Color(0.933333, 0.858824, 0.784314, 1)
-fire_color = Color(0.878431, 0.733333, 0.407843, 1)
-spikes_color = Color(0.835294, 0.513726, 0.32549, 1)
+rocket_color = Color(0.972549, 0.933333, 0.74902, 1)
+fire_color = Color(0.929412, 0.733333, 0.439216, 1)
+spikes_color = Color(0.662745, 0.352941, 0.247059, 1)
 wall_color = Color(0.329412, 0.545098, 0.443137, 1)
 portal_color = Color(0.592157, 0.701961, 0.305882, 1)
-landing_pad_color = Color(0.933333, 0.858824, 0.784314, 1)
+landing_pad_color = Color(0.972549, 0.933333, 0.74902, 1)

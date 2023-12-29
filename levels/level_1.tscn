@@ -1,20 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://dytoieya2w810"]
+[gd_scene load_steps=13 format=3 uid="uid://dytoieya2w810"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_6omvj"]
+[ext_resource type="Resource" uid="uid://ppexmevrg4q8" path="res://palettes/space.tres" id="2_kax7t"]
 [ext_resource type="PackedScene" uid="uid://dfd0fe6jtm168" path="res://player.tscn" id="2_pw61t"]
-[ext_resource type="Resource" uid="uid://cxmr8prya2j1u" path="res://palettes/flowers.tres" id="2_wql5q"]
 [ext_resource type="PackedScene" uid="uid://c1bkodhaqe4gv" path="res://wall.tscn" id="2_wvgv3"]
 [ext_resource type="PackedScene" uid="uid://bninq3la3qo77" path="res://portal.tscn" id="5_24kof"]
 [ext_resource type="PackedScene" uid="uid://dsd20brf1b0de" path="res://landing_pad.tscn" id="6_nby2c"]
 [ext_resource type="PackedScene" uid="uid://by8i3kkmbogdl" path="res://spike.tscn" id="6_xtw2u"]
-[ext_resource type="Texture2D" uid="uid://dpfr52e7336io" path="res://assets/background.png" id="7_xctcm"]
+[ext_resource type="Texture2D" uid="uid://df2rpwwtuso16" path="res://assets/backgrounds/space-background.png" id="8_jjl1o"]
+[ext_resource type="PackedScene" uid="uid://bj25rcyuofb6v" path="res://camera.tscn" id="9_dg12p"]
 
-[sub_resource type="Curve" id="Curve_osnes"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252988, 1), 0.0, 0.0, 0, 0, Vector2(0.739044, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_n7nrx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121514, 1), 0.0, 0.0, 0, 0, Vector2(0.874502, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_a6u5q"]
-curve = SubResource("Curve_osnes")
+[sub_resource type="CurveTexture" id="CurveTexture_xjooq"]
+curve = SubResource("Curve_n7nrx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8r03r"]
 lifetime_randomness = 1.0
@@ -23,17 +24,18 @@ emission_box_extents = Vector3(160, 120, 1)
 particle_flag_disable_z = true
 spread = 180.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_max = 5.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 angle_min = -720.0
 angle_max = 720.0
 scale_max = 2.0
-scale_curve = SubResource("CurveTexture_a6u5q")
+scale_curve = SubResource("CurveTexture_xjooq")
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_6omvj")
-palette = ExtResource("2_wql5q")
+palette = ExtResource("2_kax7t")
 
 [node name="Player" parent="." instance=ExtResource("2_pw61t")]
 position = Vector2(48, 200)
@@ -49,7 +51,7 @@ z_index = -40
 position = Vector2(160, 128)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_8r03r")
-lifetime = 3.0
+lifetime = 5.0
 preprocess = 5.0
 
 [node name="Spikes" type="Node" parent="."]
@@ -113,22 +115,22 @@ rotation = 3.14159
 [node name="Walls" type="Node" parent="."]
 
 [node name="Wall" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(160, 232)
-scale = Vector2(20, 1)
+position = Vector2(160, 240)
+scale = Vector2(20, 2)
 
 [node name="Wall2" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(160, 8)
-scale = Vector2(20, -1)
+position = Vector2(160, 0)
+scale = Vector2(20, 2)
 
 [node name="Wall3" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(8, 128)
+position = Vector2(0, 128)
 rotation = 1.5708
-scale = Vector2(20, -1)
+scale = Vector2(20, 2)
 
 [node name="Wall4" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(312, 128)
+position = Vector2(320, 128)
 rotation = 1.5708
-scale = Vector2(20, -1)
+scale = Vector2(20, 2)
 
 [node name="Wall5" parent="Walls" instance=ExtResource("2_wvgv3")]
 position = Vector2(98, 192)
@@ -157,5 +159,8 @@ scale = Vector2(7, 4)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -50
-texture = ExtResource("7_xctcm")
+texture = ExtResource("8_jjl1o")
 centered = false
+
+[node name="Camera" parent="." instance=ExtResource("9_dg12p")]
+position = Vector2(160, 120)
