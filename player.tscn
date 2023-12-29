@@ -24,7 +24,6 @@ angle_max = 720.0
 scale_min = 8.0
 scale_max = 8.0
 scale_curve = SubResource("CurveTexture_l5aoe")
-color = Color(0.94902, 0.827451, 0.670588, 1)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10

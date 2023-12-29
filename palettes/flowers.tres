@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PaletteResource" load_steps=2 format=3 uid="uid://cxmr8prya2j1u"]
+
+[ext_resource type="Script" path="res://palette_resource.gd" id="1_ika4n"]
+
+[resource]
+script = ExtResource("1_ika4n")
+rocket_color = Color(1, 1, 1, 1)
+fire_color = Color(0.996078, 0.423529, 0.564706, 1)
+spikes_color = Color(0.529412, 0.156863, 0.415686, 1)
+wall_color = Color(0.270588, 0.141176, 0.34902, 1)
+portal_color = Color(0.815686, 0.215686, 0.568627, 1)
+landing_pad_color = Color(1, 1, 1, 1)
