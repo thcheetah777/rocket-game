@@ -1,0 +1,157 @@
+[gd_scene load_steps=9 format=3 uid="uid://dytoieya2w810"]
+
+[ext_resource type="PackedScene" uid="uid://dfd0fe6jtm168" path="res://player.tscn" id="2_pw61t"]
+[ext_resource type="PackedScene" uid="uid://c1bkodhaqe4gv" path="res://wall.tscn" id="2_wvgv3"]
+[ext_resource type="PackedScene" uid="uid://bninq3la3qo77" path="res://portal.tscn" id="5_24kof"]
+[ext_resource type="PackedScene" uid="uid://dsd20brf1b0de" path="res://landing_pad.tscn" id="6_nby2c"]
+[ext_resource type="PackedScene" uid="uid://by8i3kkmbogdl" path="res://spike.tscn" id="6_xtw2u"]
+
+[sub_resource type="Curve" id="Curve_osnes"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252988, 1), 0.0, 0.0, 0, 0, Vector2(0.739044, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_a6u5q"]
+curve = SubResource("Curve_osnes")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8r03r"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(160, 120, 1)
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_a6u5q")
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_pw61t")]
+position = Vector2(48, 184)
+
+[node name="Portal" parent="." instance=ExtResource("5_24kof")]
+position = Vector2(277, 198)
+
+[node name="LandingPad" parent="." instance=ExtResource("6_nby2c")]
+position = Vector2(48, 220)
+
+[node name="Stars" type="GPUParticles2D" parent="."]
+position = Vector2(160, 128)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_8r03r")
+lifetime = 3.0
+preprocess = 5.0
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(110, 74)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike2" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(124, 71)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike3" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(139, 68)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike4" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(154, 65)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike5" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(169, 63)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike6" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(184, 60)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike7" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(199, 57)
+rotation = -0.174533
+scale = Vector2(1, 1)
+
+[node name="Spike8" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(110, 20)
+rotation = 3.14159
+
+[node name="Spike9" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(126, 20)
+rotation = 3.14159
+
+[node name="Spike10" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(142, 20)
+rotation = 3.14159
+
+[node name="Spike11" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(158, 20)
+rotation = 3.14159
+
+[node name="Spike12" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(174, 20)
+rotation = 3.14159
+
+[node name="Spike13" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(190, 20)
+rotation = 3.14159
+
+[node name="Spike14" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(206, 20)
+rotation = 3.14159
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(160, 232)
+scale = Vector2(20, 1)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(160, 8)
+scale = Vector2(20, -1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(8, 128)
+rotation = 1.5708
+scale = Vector2(20, -1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(312, 128)
+rotation = 1.5708
+scale = Vector2(20, -1)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(98, 192)
+rotation = 1.91986
+scale = Vector2(5, 1)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(111, 118)
+rotation = 1.5708
+scale = Vector2(5, 1)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(218, 155)
+rotation = 4.53786
+scale = Vector2(12, 1)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(174, 163)
+rotation = 4.53786
+scale = Vector2(12, 6)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("2_wvgv3")]
+position = Vector2(130, 192)
+rotation = 5.06145
+scale = Vector2(7, 4)

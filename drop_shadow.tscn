@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcsqcqej87xx7"]
+
+[ext_resource type="Script" path="res://drop_shadow.gd" id="1_cgfyy"]
+
+[node name="DropShadow" type="Sprite2D"]
+self_modulate = Color(0.486275, 0.486275, 0.486275, 1)
+top_level = true
+z_index = -20
+script = ExtResource("1_cgfyy")

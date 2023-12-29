@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsd20brf1b0de"]
+
+[ext_resource type="Texture2D" uid="uid://dc1gv2aidjvhk" path="res://assets/pad.png" id="1_8uwtr"]
+[ext_resource type="Script" path="res://landing_pad.gd" id="1_ehl5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6jd5"]
+size = Vector2(32, 4)
+
+[node name="LandingPad" type="StaticBody2D"]
+script = ExtResource("1_ehl5r")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_8uwtr")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_i6jd5")

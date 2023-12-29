@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bninq3la3qo77"]
+
+[ext_resource type="Texture2D" uid="uid://c0uw8rblrkrvk" path="res://assets/portal.png" id="1_j185p"]
+[ext_resource type="Script" path="res://portal.gd" id="1_pi3eo"]
+[ext_resource type="Texture2D" uid="uid://br31n0n6ulxyj" path="res://assets/portal-particle.png" id="2_ha78h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06gny"]
+radius = 13.0384
+
+[sub_resource type="Curve" id="Curve_uhfgs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.555777, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_se66c"]
+curve = SubResource("Curve_uhfgs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ilrli"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+scale_curve = SubResource("CurveTexture_se66c")
+color = Color(0.776471, 0.623529, 0.647059, 1)
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_pi3eo")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_06gny")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_j185p")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_ilrli")
+texture = ExtResource("2_ha78h")
+preprocess = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
