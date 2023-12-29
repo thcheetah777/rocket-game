@@ -8,12 +8,17 @@ class_name Player
 @onready var flames := $Flames
 @onready var sprite := $Sprite
 
+var original_pos: Vector2
+var broken_rocket_scene = preload("res://particles/broken_rocket.tscn")
+
 func _enter_tree() -> void:
 	Globals.player = self
 
 func _ready() -> void:
 	sprite.self_modulate = Globals.current_level.palette.rocket_color
 	flames.self_modulate = Globals.current_level.palette.fire_color
+
+	original_pos = position
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -29,6 +34,13 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func die():
+	var broken_rocket = broken_rocket_scene.instantiate() as Node2D
+	broken_rocket.position = position
+	Globals.current_level.add_child(broken_rocket)
+
+	position = original_pos
+
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Spike:
-		get_tree().reload_current_scene()
+		die()

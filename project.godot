@@ -17,8 +17,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://Globals.gd"
-SceneManager="*res://SceneManager.gd"
+Globals="*res://autoloads/Globals.gd"
+SceneManager="*res://autoloads/SceneManager.gd"
+Events="*res://autoloads/Events.gd"
 
 [display]
 
