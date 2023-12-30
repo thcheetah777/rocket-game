@@ -1,10 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdr8ly6le0nlk"]
 
-[ext_resource type="Script" path="res://rocket_piece.gd" id="1_5feqt"]
+[ext_resource type="Script" path="res://particles/rocket_piece.gd" id="1_5feqt"]
 [ext_resource type="Texture2D" uid="uid://k0rv8cykcays" path="res://assets/broken-rocket-pieces.png" id="2_br55u"]
 
 [node name="BrokenRocketPiece" type="RigidBody2D"]
-position = Vector2(2, -3)
 collision_layer = 0
 gravity_scale = 0.3
 script = ExtResource("1_5feqt")

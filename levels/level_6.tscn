@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://sjejgvqis8nj"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_8d3gb"]
+[ext_resource type="Resource" uid="uid://cxmr8prya2j1u" path="res://palettes/flowers.tres" id="2_enckf"]
+[ext_resource type="PackedScene" uid="uid://bj25rcyuofb6v" path="res://camera.tscn" id="3_dvbd1"]
+[ext_resource type="PackedScene" uid="uid://dfd0fe6jtm168" path="res://player.tscn" id="4_i6w51"]
+[ext_resource type="PackedScene" uid="uid://bninq3la3qo77" path="res://portal.tscn" id="5_yl0vy"]
+[ext_resource type="PackedScene" uid="uid://dsd20brf1b0de" path="res://landing_pad.tscn" id="6_vdjas"]
+[ext_resource type="Texture2D" uid="uid://bbmbojkk1sdty" path="res://assets/backgrounds/flowers-background.png" id="7_3vg8l"]
+[ext_resource type="PackedScene" uid="uid://c1bkodhaqe4gv" path="res://wall.tscn" id="8_d176f"]
+
+[sub_resource type="Curve" id="Curve_osnes"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252988, 1), 0.0, 0.0, 0, 0, Vector2(0.739044, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_a6u5q"]
+curve = SubResource("Curve_osnes")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8r03r"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(160, 120, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 3, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_a6u5q")
+color = Color(0.815686, 0.215686, 0.568627, 1)
+
+[node name="Level 6" type="Node2D"]
+script = ExtResource("1_8d3gb")
+palette = ExtResource("2_enckf")
+
+[node name="Camera" parent="." instance=ExtResource("3_dvbd1")]
+position = Vector2(160, 120)
+
+[node name="Player" parent="." instance=ExtResource("4_i6w51")]
+position = Vector2(48, 200)
+
+[node name="Portal" parent="." instance=ExtResource("5_yl0vy")]
+position = Vector2(277, 198)
+
+[node name="LandingPad" parent="." instance=ExtResource("6_vdjas")]
+position = Vector2(48, 220)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -50
+texture = ExtResource("7_3vg8l")
+centered = false
+
+[node name="Petals" type="GPUParticles2D" parent="."]
+z_index = -40
+position = Vector2(160, 128)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_8r03r")
+lifetime = 5.0
+preprocess = 5.0
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("8_d176f")]
+position = Vector2(160, 240)
+scale = Vector2(20, 2)
+
+[node name="Spikes" type="Node" parent="."]

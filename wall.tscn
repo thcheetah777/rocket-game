@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="Wall" type="StaticBody2D"]
+z_index = 10
 scale = Vector2(1, 2)
 script = ExtResource("1_jicy6")
 

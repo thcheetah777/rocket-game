@@ -54,63 +54,13 @@ process_material = SubResource("ParticleProcessMaterial_8r03r")
 lifetime = 5.0
 preprocess = 5.0
 
-[node name="Spikes" type="Node" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -50
+texture = ExtResource("8_jjl1o")
+centered = false
 
-[node name="Spike" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(110, 74)
-rotation = -0.174533
-
-[node name="Spike2" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(124, 71)
-rotation = -0.174533
-
-[node name="Spike3" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(139, 68)
-rotation = -0.174533
-
-[node name="Spike4" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(154, 65)
-rotation = -0.174533
-
-[node name="Spike5" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(169, 63)
-rotation = -0.174533
-
-[node name="Spike6" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(184, 60)
-rotation = -0.174533
-
-[node name="Spike7" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(199, 57)
-rotation = -0.174533
-
-[node name="Spike8" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(110, 20)
-rotation = 3.14159
-
-[node name="Spike9" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(126, 20)
-rotation = 3.14159
-
-[node name="Spike10" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(142, 20)
-rotation = 3.14159
-
-[node name="Spike11" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(158, 20)
-rotation = 3.14159
-
-[node name="Spike12" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(174, 20)
-rotation = 3.14159
-
-[node name="Spike13" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(190, 20)
-rotation = 3.14159
-
-[node name="Spike14" parent="Spikes" instance=ExtResource("6_xtw2u")]
-position = Vector2(206, 20)
-rotation = 3.14159
+[node name="Camera" parent="." instance=ExtResource("9_dg12p")]
+position = Vector2(160, 120)
 
 [node name="Walls" type="Node" parent="."]
 
@@ -132,35 +82,31 @@ position = Vector2(320, 128)
 rotation = 1.5708
 scale = Vector2(20, 2)
 
-[node name="Wall5" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(98, 192)
-rotation = 1.91986
-scale = Vector2(5, 1)
+[node name="Spikes" type="Node" parent="."]
 
-[node name="Wall6" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(111, 118)
-rotation = 1.5708
-scale = Vector2(5, 1)
+[node name="Spike" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(128, 224)
 
-[node name="Wall8" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(218, 155)
-rotation = 4.53786
-scale = Vector2(12, 1)
+[node name="Spike2" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(144, 224)
 
-[node name="Wall9" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(174, 163)
-rotation = 4.53786
-scale = Vector2(12, 6)
+[node name="Spike3" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(160, 224)
 
-[node name="Wall10" parent="Walls" instance=ExtResource("2_wvgv3")]
-position = Vector2(130, 192)
-rotation = 5.06145
-scale = Vector2(7, 4)
+[node name="Spike4" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(176, 224)
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -50
-texture = ExtResource("8_jjl1o")
-centered = false
+[node name="Spike5" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(192, 224)
 
-[node name="Camera" parent="." instance=ExtResource("9_dg12p")]
-position = Vector2(160, 120)
+[node name="Spike6" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(112, 224)
+
+[node name="Spike7" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(96, 224)
+
+[node name="Spike8" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(208, 224)
+
+[node name="Spike9" parent="Spikes" instance=ExtResource("6_xtw2u")]
+position = Vector2(224, 224)

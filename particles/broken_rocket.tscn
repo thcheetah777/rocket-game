@@ -1,14 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtqwa6oebpqnf"]
 
-[ext_resource type="PackedScene" uid="uid://cdr8ly6le0nlk" path="res://broken_rocket_piece.tscn" id="1_i3qoa"]
+[ext_resource type="PackedScene" uid="uid://cdr8ly6le0nlk" path="res://particles/broken_rocket_piece.tscn" id="1_njlyl"]
 
 [node name="BrokenRocket" type="Node2D"]
 
-[node name="BrokenRocketPiece" parent="." instance=ExtResource("1_i3qoa")]
-position = Vector2(9, -8)
+[node name="BrokenRocketPiece" parent="." instance=ExtResource("1_njlyl")]
+position = Vector2(2, 0)
 
-[node name="BrokenRocketPiece2" parent="." instance=ExtResource("1_i3qoa")]
-position = Vector2(6, -13)
+[node name="BrokenRocketPiece2" parent="." instance=ExtResource("1_njlyl")]
+position = Vector2(-1, -5)
 
 [node name="Sprite" parent="BrokenRocketPiece2" index="0"]
 position = Vector2(-3, -4)
@@ -17,8 +17,8 @@ region_rect = Rect2(8, 0, 7, 8)
 [node name="CollisionPolygon" parent="BrokenRocketPiece2" index="1"]
 polygon = PackedVector2Array(2, -1, 4, 4, 0, 4, -1, 7, -3, 7, -3, 4, 0, -1)
 
-[node name="BrokenRocketPiece3" parent="." instance=ExtResource("1_i3qoa")]
-position = Vector2(6, -7)
+[node name="BrokenRocketPiece3" parent="." instance=ExtResource("1_njlyl")]
+position = Vector2(-1, 1)
 
 [node name="Sprite" parent="BrokenRocketPiece3" index="0"]
 position = Vector2(-2.9, -2.2)
@@ -28,8 +28,8 @@ region_rect = Rect2(16, 0, 7, 6)
 position = Vector2(-1.9, -1.2)
 polygon = PackedVector2Array(5, 0, 6, 4, 5, 5, -1, 3, -1, -1)
 
-[node name="BrokenRocketPiece4" parent="." instance=ExtResource("1_i3qoa")]
-position = Vector2(11, -3)
+[node name="BrokenRocketPiece4" parent="." instance=ExtResource("1_njlyl")]
+position = Vector2(4, 5)
 
 [node name="Sprite" parent="BrokenRocketPiece4" index="0"]
 position = Vector2(-2.5, -2.9)
@@ -39,8 +39,8 @@ region_rect = Rect2(24, 0, 5, 7)
 position = Vector2(-1.5, -1.9)
 polygon = PackedVector2Array(2, -1, 4, 2, 4, 6, 2, 6, -1, 3, 0, -1)
 
-[node name="BrokenRocketPiece5" parent="." instance=ExtResource("1_i3qoa")]
-position = Vector2(3, -3)
+[node name="BrokenRocketPiece5" parent="." instance=ExtResource("1_njlyl")]
+position = Vector2(-4, 5)
 
 [node name="Sprite" parent="BrokenRocketPiece5" index="0"]
 position = Vector2(-3.1, -2.9)

@@ -10,6 +10,7 @@ class_name Player
 
 var original_pos: Vector2
 var broken_rocket_scene = preload("res://particles/broken_rocket.tscn")
+var can_move = true
 
 func _enter_tree() -> void:
 	Globals.player = self
@@ -21,6 +22,8 @@ func _ready() -> void:
 	original_pos = position
 
 func _physics_process(delta: float) -> void:
+	if not can_move: return
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -40,7 +43,18 @@ func die():
 	Globals.current_level.add_child(broken_rocket)
 
 	position = original_pos
+	rotation = 0
+	velocity = Vector2.ZERO
+
+func go_into_portal(portal: Portal):
+	can_move = false
+	velocity = Vector2.ZERO
+	flames.emitting = false
+	var tweener = get_tree().create_tween().set_parallel(true)
+	tweener.tween_property(self, "scale", Vector2.ZERO, 1)
+	tweener.tween_property(self, "global_position", portal.position, 1)
+	tweener.tween_property(self, "global_rotation_degrees", global_rotation_degrees + 360, 1)
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Spike:
-		die()
+		call_deferred("die")

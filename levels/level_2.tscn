@@ -1,44 +1,41 @@
-[gd_scene load_steps=13 format=3 uid="uid://sjejgvqis8nj"]
+[gd_scene load_steps=13 format=3 uid="uid://1w3plgdy48x"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_fwjfg"]
-[ext_resource type="Resource" uid="uid://cxmr8prya2j1u" path="res://palettes/flowers.tres" id="2_e6f18"]
+[ext_resource type="Resource" uid="uid://ppexmevrg4q8" path="res://palettes/space.tres" id="2_sd6av"]
 [ext_resource type="PackedScene" uid="uid://dfd0fe6jtm168" path="res://player.tscn" id="3_bvqgd"]
 [ext_resource type="PackedScene" uid="uid://bninq3la3qo77" path="res://portal.tscn" id="4_t6dhh"]
 [ext_resource type="PackedScene" uid="uid://dsd20brf1b0de" path="res://landing_pad.tscn" id="5_4si0e"]
 [ext_resource type="PackedScene" uid="uid://by8i3kkmbogdl" path="res://spike.tscn" id="6_6r8yi"]
+[ext_resource type="Texture2D" uid="uid://df2rpwwtuso16" path="res://assets/backgrounds/space-background.png" id="6_acteo"]
 [ext_resource type="PackedScene" uid="uid://c1bkodhaqe4gv" path="res://wall.tscn" id="7_hvxjb"]
-[ext_resource type="Texture2D" uid="uid://bbmbojkk1sdty" path="res://assets/backgrounds/flowers-background.png" id="8_6m62b"]
 [ext_resource type="PackedScene" uid="uid://bj25rcyuofb6v" path="res://camera.tscn" id="9_26a4o"]
 
-[sub_resource type="Curve" id="Curve_osnes"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252988, 1), 0.0, 0.0, 0, 0, Vector2(0.739044, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_n7nrx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121514, 1), 0.0, 0.0, 0, 0, Vector2(0.874502, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_a6u5q"]
-curve = SubResource("Curve_osnes")
+[sub_resource type="CurveTexture" id="CurveTexture_xjooq"]
+curve = SubResource("Curve_n7nrx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8r03r"]
-lifetime_randomness = 0.5
+lifetime_randomness = 1.0
 emission_shape = 3
 emission_box_extents = Vector3(160, 120, 1)
 particle_flag_disable_z = true
-direction = Vector3(0, 0, 0)
-gravity = Vector3(0, 3, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 angle_min = -720.0
 angle_max = 720.0
-scale_min = 2.0
-scale_max = 3.0
-scale_curve = SubResource("CurveTexture_a6u5q")
-color = Color(0.815686, 0.215686, 0.568627, 1)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_xjooq")
 
 [node name="Level 2" type="Node2D"]
 script = ExtResource("1_fwjfg")
-palette = ExtResource("2_e6f18")
-
-[node name="Camera" parent="." instance=ExtResource("9_26a4o")]
-position = Vector2(160, 120)
+palette = ExtResource("2_sd6av")
 
 [node name="Player" parent="." instance=ExtResource("3_bvqgd")]
 position = Vector2(48, 200)
@@ -49,18 +46,21 @@ position = Vector2(277, 198)
 [node name="LandingPad" parent="." instance=ExtResource("5_4si0e")]
 position = Vector2(48, 220)
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -50
-texture = ExtResource("8_6m62b")
-centered = false
-
-[node name="Petals" type="GPUParticles2D" parent="."]
+[node name="Stars" type="GPUParticles2D" parent="."]
 z_index = -40
 position = Vector2(160, 128)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_8r03r")
 lifetime = 5.0
 preprocess = 5.0
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -50
+texture = ExtResource("6_acteo")
+centered = false
+
+[node name="Camera" parent="." instance=ExtResource("9_26a4o")]
+position = Vector2(160, 120)
 
 [node name="Walls" type="Node" parent="."]
 
@@ -110,57 +110,93 @@ scale = Vector2(7, 4)
 [node name="Spikes" type="Node" parent="."]
 
 [node name="Spike" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(110, 74)
+position = Vector2(111, 78)
 rotation = -0.174533
 
 [node name="Spike2" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(124, 71)
+position = Vector2(125, 75)
 rotation = -0.174533
 
 [node name="Spike3" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(139, 68)
+position = Vector2(140, 72)
 rotation = -0.174533
 
 [node name="Spike4" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(154, 65)
+position = Vector2(155, 69)
 rotation = -0.174533
 
 [node name="Spike5" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(169, 63)
+position = Vector2(170, 67)
 rotation = -0.174533
 
 [node name="Spike6" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(184, 60)
+position = Vector2(185, 64)
 rotation = -0.174533
 
 [node name="Spike7" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(199, 57)
+position = Vector2(200, 61)
 rotation = -0.174533
 
 [node name="Spike8" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(110, 20)
+position = Vector2(104, 16)
 rotation = 3.14159
 
 [node name="Spike9" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(126, 20)
+position = Vector2(120, 16)
 rotation = 3.14159
 
 [node name="Spike10" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(142, 20)
+position = Vector2(136, 16)
 rotation = 3.14159
 
 [node name="Spike11" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(158, 20)
+position = Vector2(152, 16)
 rotation = 3.14159
 
 [node name="Spike12" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(174, 20)
+position = Vector2(168, 16)
 rotation = 3.14159
 
 [node name="Spike13" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(190, 20)
+position = Vector2(184, 16)
 rotation = 3.14159
 
 [node name="Spike14" parent="Spikes" instance=ExtResource("6_6r8yi")]
-position = Vector2(206, 20)
+position = Vector2(200, 16)
 rotation = 3.14159
+
+[node name="Spike15" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 24)
+rotation = 4.71239
+
+[node name="Spike16" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 40)
+rotation = 4.71239
+
+[node name="Spike17" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 56)
+rotation = 4.71239
+
+[node name="Spike18" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 72)
+rotation = 4.71239
+
+[node name="Spike19" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 88)
+rotation = 4.71239
+
+[node name="Spike20" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 104)
+rotation = 4.71239
+
+[node name="Spike21" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 120)
+rotation = 4.71239
+
+[node name="Spike22" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 136)
+rotation = 4.71239
+
+[node name="Spike23" parent="Spikes" instance=ExtResource("6_6r8yi")]
+position = Vector2(304, 152)
+rotation = 4.71239

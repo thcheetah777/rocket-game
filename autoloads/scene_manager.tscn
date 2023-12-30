@@ -1,0 +1,141 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1l6uyk8i2ifj"]
+
+[ext_resource type="Script" path="res://autoloads/SceneManager.gd" id="1_sbqo7"]
+
+[sub_resource type="Animation" id="Animation_ht5eh"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canvas/ColorRectTop:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-123, -54), Vector2(-265, -219)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canvas/ColorRectTop:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.647517, -0.647517]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Canvas/ColorRectBottom:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(21, 137), Vector2(151, 283)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Canvas/ColorRectBottom:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.647517, -0.647517]
+}
+
+[sub_resource type="Animation" id="Animation_0kooh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canvas/ColorRectTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-123, -54)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canvas/ColorRectTop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.647517]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Canvas/ColorRectBottom:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, 137)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Canvas/ColorRectBottom:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.647517]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7cuo7"]
+_data = {
+"RESET": SubResource("Animation_0kooh"),
+"transition": SubResource("Animation_ht5eh")
+}
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_sbqo7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "transition"
+libraries = {
+"": SubResource("AnimationLibrary_7cuo7")
+}
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRectTop" type="ColorRect" parent="Canvas"]
+offset_left = -123.0
+offset_top = -54.0
+offset_right = 339.0
+offset_bottom = 186.0
+rotation = -0.647517
+pivot_offset = Vector2(160, 128)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRectBottom" type="ColorRect" parent="Canvas"]
+offset_left = 21.0
+offset_top = 137.0
+offset_right = 483.0
+offset_bottom = 377.0
+rotation = -0.647517
+pivot_offset = Vector2(160, 128)
+color = Color(0, 0, 0, 1)
