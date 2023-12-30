@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhyh6rsv0lmxl"]
+
+[sub_resource type="Curve" id="Curve_osnes"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.252988, 1), 0.0, 0.0, 0, 0, Vector2(0.739044, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_a6u5q"]
+curve = SubResource("Curve_osnes")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8r03r"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(160, 120, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 3, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_a6u5q")
+color = Color(0.815686, 0.215686, 0.568627, 1)
+
+[node name="Petals" type="GPUParticles2D"]
+z_index = -40
+position = Vector2(160, 128)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_8r03r")
+lifetime = 5.0
+preprocess = 5.0
